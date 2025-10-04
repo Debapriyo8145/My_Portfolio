@@ -1,0 +1,794 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="bg-elements">
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+        <div class="bg-circle circle-3"></div>
+    </div>
+
+    <!-- =============Navigation Bar================= -->
+    <nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo with Animation -->
+        <div class="nav-brand">
+            <div class="logo-wrapper">
+                <!-- Uncomment if you want the dots back -->
+                <!--
+                <div class="logo-dot dot-1"></div>
+                <div class="logo-dot dot-2"></div>
+                <div class="logo-dot dot-3"></div>
+                -->
+                <span class="logo-text">Portfolio</span>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="nav-menu">
+            <a href="#hero" class="nav-item active" data-text="Home">
+                <span class="nav-text">Home</span>
+                <div class="nav-dot"></div>
+            </a>
+            <a href="#about" class="nav-item" data-text="About">
+                <span class="nav-text">About</span>
+                <div class="nav-dot"></div>
+            </a>
+            <a href="#skills" class="nav-item" data-text="Skills">
+                <span class="nav-text">Skills</span>
+                <div class="nav-dot"></div>
+            </a>
+            <a href="#projects" class="nav-item" data-text="Projects">
+                <span class="nav-text">Projects</span>
+                <div class="nav-dot"></div>
+            </a>
+            <a href="#education" class="nav-item" data-text="Education">
+                <span class="nav-text">Education</span>
+                <div class="nav-dot"></div>
+            </a>
+            <a href="#experience" class="nav-item" data-text="Work">
+                <span class="nav-text">Experience</span>
+                <div class="nav-dot"></div>
+            </a>
+            
+            <a href="#contact" class="nav-item" data-text="Contact">
+                <span class="nav-text">Contact</span>
+                <div class="nav-dot"></div>
+            </a>
+        </div>
+
+        <!-- Right Side Actions -->
+        <div class="nav-actions">
+            <!-- CTA Button -->
+            <button class="cta-btn" id="whatsappBtn">
+                <span class="cta-text">Let's Talk</span>
+                <div class="cta-arrow">→</div>
+                <div class="cta-hover"></div>
+            </button>
+
+            <script>
+            document.getElementById('whatsappBtn').addEventListener('click', function() {
+                window.open('https://wa.me/+918145379438', '_blank');
+            });
+            </script>
+
+
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <button class="mobile-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-menu-content">
+            <a href="#hero" class="mobile-nav-item active">Home</a>
+            <a href="#about" class="mobile-nav-item">About</a>
+            <a href="#skills" class="mobile-nav-item">skills</a>
+            <a href="#education" class="mobile-nav-item">Education</a>
+            <a href="#experience" class="mobile-nav-item">Work</a>
+            <a href="#contact" class="mobile-nav-item">Contact</a>
+        </div>
+    </div>
+    </nav>
+    <!-- Desktop Theme Toggle (Fixed Bottom Right) -->
+    <div class="desktop-theme-switch-wrapper">
+        <div class="theme-switch">
+            <input type="checkbox" id="theme-toggle-desktop" class="theme-checkbox">
+            <label for="theme-toggle-desktop" class="theme-label">
+                <div class="theme-handle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="theme-background"></div>
+            </label>
+        </div>
+    </div>
+
+<!-- =================Hero Section================== -->
+<section class="hero" id="hero">
+    <div class="hero-container">
+        <!-- Image Section -->
+        <div class="hero-image-wrapper">
+            <div class="image-container">
+                <img src="{% static 'images/MyPP.jpg' %}" alt="Debapriyo" class="hero-image">
+                <div class="image-glow"></div>
+                <div class="image-border-animation"></div>
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="hero-content">
+            <div class="intro-text">
+                <span class="intro-greeting">Hi, I'm</span>
+                <h1 class="hero-name">
+                    <span class="name-part">Debapriyo</span>
+                </h1>
+                <div class="title-container">
+                    <span class="hero-title">CST Student</span>
+                    <div class="title-underline"></div>
+                </div>
+            </div>
+
+            <p class="hero-subtitle">
+                <span class="subtitle-text">Crafting digital experiences with stunning visuals and seamless interactions</span>
+            </p>
+
+            <button class="hero-cta">
+                <span class="cta-text">Explore My Work</span>
+                <div class="cta-sparkle">
+                    <div class="sparkle"></div>
+                    <div class="sparkle"></div>
+                    <div class="sparkle"></div>
+                </div>
+                <div class="cta-hover-effect"></div>
+            </button>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://github.com/Debapriyo8145?tab=repositories" class="social-link" data-tooltip="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/debapriyo-pal-chowdhury-72157024a/" class="social-link" data-tooltip="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social-link" data-tooltip="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="mailto:debapriyo2001@gmail.com@gmail.com?subject=Project Inquiry&body=Hi, I’d like to talk about your web development services." class="social-link" data-tooltip="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- =================About me=====================  -->
+<section class="about" id="about">
+    <div class="about-container">
+        <!-- Heading on the left -->
+        <div class="about-heading">
+            <h2 class="about-title">
+                <span class="title-line">About</span>
+                <span class="title-line">Me</span>
+            </h2>
+            <div class="title-underline"></div>
+        </div>
+
+        <!-- Content on the right -->
+        <div class="about-content">
+            <div class="about-text">
+                <p class="about-paragraph" data-delay="0.1">
+                    I'm <span class="highlight">Debapriyo Pal Chowdhury</span>, a motivated <span class="highlight">Computer Science</span> student at <span class="highlight">JIS School of Polytechnic</span>, pursuing a Diploma in <span class="highlight">Computer Science & Technology</span>. I specialize in <span class="highlight">full-stack web development</span>, combining <span class="highlight">frontend technologies</span> like HTML, CSS, JavaScript, and Bootstrap with <span class="highlight">backend frameworks</span> like  <span class="highlight">Django and MySQL database management</span>.
+                </p>
+                
+                <p class="about-paragraph" data-delay="0.2">
+                    During my industrial training at <span class="highlight">Euphoria Genex, Kolkata</span>, I gained <span class="highlight">hands-on experience</span> developing dynamic web applications, implementing user authentication, <span class="highlight">admin dashboards</span>, product listings, and order management systems using <span class="highlight">Django views and models</span>. I also connected applications to <span class="highlight">MySQL databases</span> via <span class="highlight">XAMPP</span> for efficient data storage.
+                </p>
+
+                <p class="about-paragraph" data-delay="0.3">
+                    I am proficient in <span class="highlight">Python programming</span>, <span class="highlight">front-end web design</span>, <span class="highlight">database integration</span>, and <span class="highlight">version control using Git</span>. My projects showcase my ability to build <span class="highlight">responsive, interactive, and user-friendly web applications</span> that are both performant and visually appealing.
+                </p>
+
+                <p class="about-paragraph" data-delay="0.4">
+                    Beyond coding, I actively explore new <span class="highlight">web development trends</span>, experiment with UI/UX design, and contribute to open-source projects. I am passionate about learning and applying <span class="highlight">modern technologies</span> to deliver impactful and scalable digital solutions.
+                </p>
+
+                <!-- <div class="about-cta">
+                    <a href="{% static 'docs/YourCV.pdf' %}" download class="about-btn">
+                        <span>Download Resume</span>
+                        <div class="btn-hover-effect"></div>
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================skills======================= -->
+
+<section class="skills" id="skills">
+    <div class="skills-container">
+        <!-- Content on the left -->
+        <div class="skills-content">
+    <div class="skills-grid">
+        <!-- Row 1: Python, MySQL, Django -->
+        <div class="skill-item" data-delay="0.1">
+            <div class="skill-icon">
+                <i class="fab fa-python"></i>
+            </div>
+            <h3 class="skill-name">Python</h3>
+            <p class="skill-description">Backend development, data analysis, and automation</p>
+        </div>
+
+        <div class="skill-item" data-delay="0.2">
+            <div class="skill-icon">
+                <i class="fas fa-database"></i>
+            </div>
+            <h3 class="skill-name">MySQL</h3>
+            <p class="skill-description">Database design, optimization, and complex queries</p>
+        </div>
+
+        <div class="skill-item" data-delay="0.3">
+            <div class="skill-icon">
+                <!-- Django logo SVG -->
+                <img src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-icon.svg" alt="Django" style="width:40px; height:40px;">
+            </div>
+            <h3 class="skill-name">Django</h3>
+            <p class="skill-description">Server-side development, RESTful APIs, and full-stack web applications</p>
+        </div>
+
+        <!-- Row 2: HTML, CSS, JavaScript -->
+        <div class="skill-item" data-delay="0.4">
+            <div class="skill-icon">
+                <i class="fab fa-html5"></i>
+            </div>
+            <h3 class="skill-name">HTML5</h3>
+            <p class="skill-description">Semantic markup, accessibility, and modern web structure</p>
+        </div>
+
+        <div class="skill-item" data-delay="0.5">
+            <div class="skill-icon">
+                <i class="fab fa-css3-alt"></i>
+            </div>
+            <h3 class="skill-name">CSS3</h3>
+            <p class="skill-description">Advanced animations, flexbox, grid, and responsive design</p>
+        </div>
+
+        <div class="skill-item" data-delay="0.6">
+            <div class="skill-icon">
+                <i class="fab fa-js"></i>
+            </div>
+            <h3 class="skill-name">JavaScript</h3>
+            <p class="skill-description">ES6+, modern frameworks, and interactive web experiences</p>
+        </div>
+
+        <!-- Row 3: Data Analysis, Git, Figma -->
+        <div class="skill-item" data-delay="0.7">
+            <div class="skill-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="skill-name">Data Analysis</h3>
+            <p class="skill-description">Collecting, cleaning, and interpreting data to extract insights and drive decisions</p>
+        </div>
+
+        <div class="skill-item" data-delay="0.8">
+            <div class="skill-icon">
+                <i class="fab fa-git-alt"></i>
+            </div>
+            <h3 class="skill-name">Git</h3>
+            <p class="skill-description">Version control, collaboration, and deployment workflows</p>
+        </div>
+
+        <div class="skill-item" data-delay="0.9">
+            <div class="skill-icon">
+                <i class="fab fa-figma"></i>
+            </div>
+            <h3 class="skill-name">Figma</h3>
+            <p class="skill-description">UI/UX design, prototyping, and design systems</p>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Heading on the right -->
+        <div class="skills-heading">
+            <h2 class="skills-title">
+                <span class="title-line">My</span>
+                <span class="title-line">skills</span>
+            </h2>
+            <div class="title-underline"></div>
+            <p class="skills-intro">
+                Technologies and tools I work with to create amazing digital experiences
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ====================Projects===================== -->
+ <section class="projects" id="projects">
+    <div class="projects-container">
+        <!-- Title on Top Middle -->
+        <div class="projects-heading">
+            <h2 class="projects-title">
+                <span class="title-line">My</span>
+                <span class="title-line">Projects</span>
+            </h2>
+            <div class="title-underline"></div>
+            <p class="projects-intro">
+                Some of my recent work that showcases my skills and creativity
+            </p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card" data-delay="0.1">
+                <div class="project-front">
+                    <div class="project-image">
+                        <img src="{% static 'images/E-com_img.jpg' %}" alt="E-Commerce Website">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">E-Commerce Website</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5,CSS,JS</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-back">
+                    <h3 class="project-title">E-Commerce Platform</h3>
+                    <p class="project-description">
+                        A full-stack e-commerce solution with user authentication, product catalog, shopping cart, and payment integration. Features admin dashboard for inventory management.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card" data-delay="0.4">
+                <div class="project-front">
+                    <div class="project-image">
+                        <img src="{% static 'images/portfolio-img.jpg' %}" alt="Portfolio Website">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-name">Portfolio Website</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5,CSS,JS</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-back">
+                    <h3 class="project-title">Portfolio Website</h3>
+                    <p class="project-description">
+                        A responsive portfolio website with smooth animations, dark/light mode toggle, and interactive elements. Built with modern CSS techniques and optimized for performance.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============Education================ -->
+<section class="education" id="education">
+    <div class="education-container">
+        <!-- Title on Top Middle -->
+        <div class="education-heading">
+            <h2 class="education-title">
+                <span class="title-line">Education</span>
+                <span class="title-line">Journey</span>
+            </h2>
+            <div class="title-underline"></div>
+            <p class="education-intro">
+                My academic background and continuous learning path
+            </p>
+        </div>
+
+        <!-- Education Timeline -->
+        <div class="education-timeline">
+            <!-- Education 1: Diploma -->
+            <div class="education-card" data-delay="0.1">
+                <div class="education-header">
+                    <h3 class="education-degree">Diploma in Computer Science & Technology</h3>
+                    <span class="education-year">2024 - 2026 (Final Year)</span>
+                </div>
+                <div class="education-institution">
+                    <h4 class="institution-name">JIS School of Polytechnic</h4>
+                    <span class="education-location">Ranaghat,Nadia, WestBengal</span>
+                </div>
+                <div class="education-details">
+                    <p class="education-description">
+                        Pursuing diploma in Computer Science & Technology with focus on software development, web technologies, and data analytics. Maintaining an average CGPA of 8.55.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Education 2: 12th Grade -->
+            <div class="education-card" data-delay="0.2">
+                <div class="education-header">
+                    <h3 class="education-degree">Higher Secondary Education (12th Grade)</h3>
+                    <span class="education-year">2018 - 2020</span>
+                </div>
+                <div class="education-institution">
+                    <h4 class="institution-name">Ranaghat Bharati High School</h4>
+                    <span class="education-location">Ranaghat, Nadia, WestBengal</span>
+                </div>
+                <div class="education-details">
+                    <p class="education-description">
+                        Completed higher secondary education with Vocational Education In Computer Maintanence stream. Achieved 88.2% in final examinations.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Education 3: 10th Grade -->
+            <div class="education-card" data-delay="0.3">
+                <div class="education-header">
+                    <h3 class="education-degree">Secondary Education (10th Grade)</h3>
+                    <span class="education-year">2018</span>
+                </div>
+                <div class="education-institution">
+                    <h4 class="institution-name">Ranaghat Pal Chowdhury High School</h4>
+                    <span class="education-location">Ranaghat, Nadia, WestBengal</span>
+                </div>
+                <div class="education-details">
+                    <p class="education-description">
+                        Completed secondary education with a passing grade of 57.17%.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =============experience============= -->
+
+<section class="experience" id="experience">
+    <div class="experience-container">
+
+        <!-- Content on the left -->
+        <div class="experience-content">
+            <div class="experience-grid">
+
+
+                
+                <!-- Experience 1 -->
+            <div class="experience-card" data-delay="0.2">
+    <div class="experience-front">
+        <div class="experience-icon">
+            <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3 class="experience-role">Web Development Intern</h3>
+        <div class="experience-company">
+            <span class="company-name">Euphoria Genex, Kolkata (Sector V)</span>
+            <span class="experience-duration">2023</span>
+        </div>
+    </div>
+    <div class="experience-back">
+        <h3 class="experience-title">Web Development Intern</h3>
+        <div class="experience-details">
+            <p class="experience-description">
+                Completed a full-stack web development internship, gaining hands-on experience in building dynamic web applications. Worked mainly with Django for backend, and HTML, CSS, JavaScript, Bootstrap, and MySQL for frontend and database integration. Received a certificate of completion for the training.
+            </p>
+            <ul class="experience-responsibilities">
+                <li>Developed full-stack web applications using Django and MySQL</li>
+                <li>Implemented responsive UIs with HTML, CSS, JS, and Bootstrap</li>
+                <li>Designed and managed databases using MySQL (XAMPP)</li>
+                <li>Learned version control, project workflows, and deployment practices</li>
+            </ul>
+        </div>
+        <div class="experience-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Bootstrap</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Django</span>
+        </div>
+    </div>
+            </div>
+
+
+            </div>
+        </div>
+
+        <!-- Heading on the right -->
+        <div class="experience-heading">
+            <h2 class="experience-title">
+                <span class="title-line">Work</span>
+                <span class="title-line">Experience</span>
+            </h2>
+            <div class="title-underline"></div>
+            <p class="experience-intro">
+                My professional journey and the roles that shaped my career
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============Contact============ -->
+
+<section class="contact" id="contact">
+    <div class="contact-container">
+        <!-- Title on Top Middle -->
+        <div class="contact-heading">
+            <h2 class="contact-title">
+                <span class="title-line">Get In</span>
+                <span class="title-line">Touch</span>
+            </h2>
+            <div class="title-underline"></div>
+            <p class="contact-intro">
+                Have a project in mind or want to collaborate? I'd love to hear from you!
+            </p>
+        </div>
+
+        <!-- Contact Content -->
+        <div class="contact-content">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="contact-item" data-delay="0.1">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>debapriyo@example.com</p>
+                        <span>I'll reply within 24 hours</span>
+                    </div>
+                </div>
+
+                <div class="contact-item" data-delay="0.2">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <p>+91 98765 43210</p>
+                        <span>Mon - Fri, 9AM - 6PM</span>
+                    </div>
+                </div>
+
+                <div class="contact-item" data-delay="0.3">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p>Kolkata, India</p>
+                        <span>Open to remote work</span>
+                    </div>
+                </div>
+
+                <div class="contact-item" data-delay="0.4">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>WhatsApp</h3>
+                        <p>+91 98765 43210</p>
+                        <span>Quick responses</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper" data-delay="0.5">
+                <form class="contact-form" id="contactForm">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name *</label>
+                        <input type="text" id="name" name="name" class="form-input" required placeholder="Enter your full name">
+                        <div class="form-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address *</label>
+                        <input type="email" id="email" name="email" class="form-input" required placeholder="Enter your email address">
+                        <div class="form-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">WhatsApp Number *</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required placeholder="Enter your WhatsApp number">
+                        <div class="form-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Your Message *</label>
+                        <textarea id="message" name="message" class="form-textarea" required placeholder="Tell me about your project or inquiry..." rows="5"></textarea>
+                        <div class="form-error"></div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <div class="btn-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <div class="btn-hover-effect"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============Footer============== -->
+
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Main Footer Content -->
+        <div class="footer-content">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="logo-wrapper">
+                        <span class="logo-text">Portfolio</span>
+                    </div>
+                </div>
+                <p class="footer-description">
+                    Passionate Computer Science student crafting digital experiences 
+                    with modern technologies and creative solutions.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-nav">
+                    <li><a href="#home" class="footer-link">Home</a></li>
+                    <li><a href="#about" class="footer-link">About</a></li>
+                    <li><a href="#skills" class="footer-link">skills</a></li>
+                    <li><a href="#projects" class="footer-link">Projects</a></li>
+                    <li><a href="#education" class="footer-link">Education</a></li>
+                    <li><a href="#experience" class="footer-link">Experience</a></li>
+                    <li><a href="#contact" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-services">
+                <h3 class="footer-heading">Services</h3>
+                <ul class="footer-nav">
+                    <li><a href="#" class="footer-link">Web Development</a></li>
+                    <li><a href="#" class="footer-link">UI/UX Design</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <h3 class="footer-heading">Get In Touch</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>debapriyo2001@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 81453 79438</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Ranaghat, Nadia, WestBengal, India</span>
+                    </div>
+                </div>
+                <button class="footer-cta" id="downloadCV">
+                    <span>Download CV</span>
+                    <i class="fas fa-download"></i>
+                </button>
+
+                <script>
+                document.getElementById('downloadCV').addEventListener('click', function() {
+                    window.location.href = "{% static 'docs/Debapriyo_pal_chowdhury_Resume (2).pdf' %}";
+                });
+                </script>
+
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                <p>&copy; 2025 Debapriyo Pal Chowdhury. All rights reserved.</p>
+            </div>
+            <!-- <div class="footer-legal">
+                <a href="#" class="legal-link">Privacy Policy</a>
+                <a href="#" class="legal-link">Terms of Service</a>
+                <a href="#" class="legal-link">Cookie Policy</a>
+            </div> -->
+            <div class="footer-scroll">
+                <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault(); // stop normal form reload
+
+        const formData = new FormData(form);
+
+        fetch("{% url 'contact_submit' %}", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value,
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("✅ " + data.message);
+                form.reset(); // clear form after success
+            } else {
+                alert("❌ Something went wrong: " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("⚠️ Network error. Try again later.");
+        });
+    });
+});
+    </script>
+
+</body>
+</html>
