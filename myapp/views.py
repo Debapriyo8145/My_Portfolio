@@ -1,10 +1,18 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import ContactMessage
+from .models import ContactMessage, Skill, Project, Experience
 
 # Create your views here.
 def home(request):
-    return render(request, 'myapp/home.html')
+    skills = Skill.objects.all().order_by('id')
+    projects = Project.objects.all().order_by('id') 
+    experiences = Experience.objects.all().order_by('id') 
+    return render(request, 'myapp/home.html', {
+        'skills': skills,
+        'projects': projects,
+        'experiences': experiences
+    })
+
 
 def contact_submit(request):
     if request.method == 'POST':

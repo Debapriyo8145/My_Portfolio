@@ -707,7 +707,7 @@ class ContactForm {
         this.contactItems = document.querySelectorAll('.contact-item');
         this.contactFormWrapper = document.querySelector('.contact-form-wrapper');
         this.observer = null;
-        
+
         this.init();
     }
 
@@ -717,6 +717,7 @@ class ContactForm {
         this.setupFormSubmission();
     }
 
+    // === SCROLL ANIMATION ===
     setupScrollAnimations() {
         this.observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -733,9 +734,8 @@ class ContactForm {
     }
 
     animateContactItems() {
-        this.contactItems.forEach((item, index) => {
+        this.contactItems.forEach((item) => {
             const delay = item.getAttribute('data-delay') || 0;
-            
             setTimeout(() => {
                 item.style.opacity = '1';
                 item.style.transform = 'translateX(0)';
@@ -743,7 +743,6 @@ class ContactForm {
             }, delay * 1000);
         });
 
-        // Animate form wrapper
         setTimeout(() => {
             if (this.contactFormWrapper) {
                 this.contactFormWrapper.style.opacity = '1';
@@ -752,24 +751,19 @@ class ContactForm {
             }
         }, 1500);
 
-        // Stop observing after animation
         const contactSection = document.querySelector('.contact');
         this.observer.unobserve(contactSection);
     }
 
+    // === VALIDATION ===
     setupFormValidation() {
         if (!this.contactForm) return;
 
         const inputs = this.contactForm.querySelectorAll('.form-input, .form-textarea');
-        
-        inputs.forEach(input => {
-            input.addEventListener('blur', () => {
-                this.validateField(input);
-            });
 
-            input.addEventListener('input', () => {
-                this.clearError(input);
-            });
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => this.validateField(input));
+            input.addEventListener('input', () => this.clearError(input));
         });
     }
 
@@ -778,28 +772,23 @@ class ContactForm {
         const formGroup = field.closest('.form-group');
         const errorElement = formGroup.querySelector('.form-error');
 
-        // Clear previous error
         this.clearError(field);
 
-        // Required field validation
         if (!value) {
             this.showError(field, 'This field is required');
             return false;
         }
 
-        // Email validation
         if (field.type === 'email' && !this.isValidEmail(value)) {
             this.showError(field, 'Please enter a valid email address');
             return false;
         }
 
-        // Phone validation
         if (field.name === 'phone' && !this.isValidPhone(value)) {
             this.showError(field, 'Please enter a valid phone number');
             return false;
         }
 
-        // Message length validation
         if (field.name === 'message' && value.length < 10) {
             this.showError(field, 'Message must be at least 10 characters long');
             return false;
@@ -821,7 +810,6 @@ class ContactForm {
     showError(field, message) {
         const formGroup = field.closest('.form-group');
         const errorElement = formGroup.querySelector('.form-error');
-        
         formGroup.classList.add('error');
         errorElement.textContent = message;
     }
@@ -829,7 +817,6 @@ class ContactForm {
     clearError(field) {
         const formGroup = field.closest('.form-group');
         const errorElement = formGroup.querySelector('.form-error');
-        
         formGroup.classList.remove('error');
         errorElement.textContent = '';
     }
@@ -847,6 +834,7 @@ class ContactForm {
         return isValid;
     }
 
+    // === FORM SUBMISSION ===
     setupFormSubmission() {
         if (!this.contactForm) return;
 
@@ -857,30 +845,36 @@ class ContactForm {
     }
 
     async handleFormSubmit() {
-        if (!this.validateForm()) {
-            return;
-        }
+        if (!this.validateForm()) return;
 
         this.setLoadingState(true);
 
-        // Simulate form submission (replace with actual API call later)
         try {
-            await this.simulateApiCall();
-            this.showSuccessMessage();
-            this.contactForm.reset();
+            const formData = new FormData(this.contactForm);
+
+            const response = await fetch("/contact-submit/", {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value
+                },
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                this.showSuccessMessage();
+                this.contactForm.reset();
+            } else {
+                this.showErrorMessage(data.message || "Failed to send message.");
+            }
+
         } catch (error) {
-            this.showErrorMessage('Failed to send message. Please try again.');
+            this.showErrorMessage("Something went wrong. Try again later.");
+            console.error(error);
         } finally {
             this.setLoadingState(false);
         }
-    }
-
-    simulateApiCall() {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve({ success: true });
-            }, 2000);
-        });
     }
 
     setLoadingState(isLoading) {
@@ -895,10 +889,10 @@ class ContactForm {
         }
     }
 
+    // === SUCCESS / ERROR FEEDBACK ===
     showSuccessMessage() {
-        // Create success message element
         let successElement = this.contactForm.querySelector('.form-success');
-        
+
         if (!successElement) {
             successElement = document.createElement('div');
             successElement.className = 'form-success';
@@ -914,20 +908,19 @@ class ContactForm {
 
         successElement.classList.add('show');
 
-        // Remove success message after 5 seconds
         setTimeout(() => {
             successElement.classList.remove('show');
         }, 5000);
     }
 
     showErrorMessage(message) {
-        alert(message); // Replace with better error UI
+        alert(message); // Optional: replace with custom modal/toast later
     }
 }
 
-// Initialize in your main PortfolioNav class
-// Add this to your existing init method:
-this.contactForm = new ContactForm();
+// Initialize it inside your main script:
+new ContactForm();
+
 
 // Footer Functionality
 class FooterManager {
